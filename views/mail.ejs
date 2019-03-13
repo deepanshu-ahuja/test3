@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Send e-mail</h2>
+
+<% if(hasError) {%>
+    <h1><%=errorMessage %></h1>
+<%}%>
+<form action="/mail" method="post">
+To:<br>
+<input type="text" name="to" value="<% if (hasError) { %><%= to %><% } %>"><br>
+From:<br>
+<input type="text" name="from", value = "<%= from %>" ><br>
+Body:<br>
+<textArea name="emailBody" row="5"></textarea><% if (hasError) { %><%= emailBody %><% } %>"<br><br>
+    <input type="submit" value="Send">
+
+</form>
+
+</body>
+</html>

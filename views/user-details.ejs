@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <% if(isAdmin) {%>
+
+    <h1>Admin Detail</h1>
+    <% } else {%>
+    <h1>User Detail</h1>
+    <% } %>
+
+    
+    
+    
+        <h3>firstName: <%=user.fName%></h3>
+        <h3>lastName: <%=user.lName%></h3>
+        <h3>email: <%=user.email%></h3>
+        <h3>mobileNumber: <%=user.mobile%></h3>
+        <h3>address: <%=user.address%></h3>
+        <a href = "/edit/<%=user.id%>">edit</a><br><br>
+        <% if(isAdmin) {%>
+
+            <a href = "/allUsers">All Users</a>
+        <% } %>
+        
+    
+        
+            
+
+        <form  action = "/imageUpload" method = "POST" enctype="multipart/form-data">
+            <input 
+                    type="file" 
+                    name="image" 
+                    id="image" >
+            <input type="submit" name = "upload" value = "upload">
+        </form>
+
+        
+        <br><br>
+        <form action = "/logout" method = "POST">
+            <input type = "submit" value = "logout">&nbsp&nbsp<a href = "/mail">mailer</a>
+        
+        </form>
+
+
+      
+</body>
+</html>

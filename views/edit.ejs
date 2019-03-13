@@ -1,0 +1,38 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= pageType%></h1>
+    <% if(hasError) {%>
+        <h1><%=errorMessage %></h1>
+    <%}%>
+    <form action="/postEditUser" method = "POST">
+           firstName: <input type = "text" name = "fName" placeholder="firstname" value="<% if (hasError || edit) { %><%= user.fName %><% } %>" ><br><br>
+           lastName: <input type = "text" name = "lName" placeholder="lastname" value="<% if (hasError || edit) { %><%= user.lName %><% } %>"><br><br>
+            email: <input type = "text" name = "email" placeholder="email" value="<% if (hasError|| edit) { %><%= user.email %><% } %>"><br><br>
+           password:  <input type = "password" name = "password" placeholder="password"><br><br>
+          confirmPassword:  <input type = "password" name = "cPassword" placeholder="Confirmpassword"><br><br>
+          mobile:  <input type = "text" name = "mobile" placeholder="Number" value="<% if (hasError || edit) { %><%= user.mobile %><% } %>"><br><br>
+            address: <textarea rows="5" name = "address" placeholder="address"><% if (hasError || edit) { %><%= user.address %><% } %></textarea><br><br>
+
+            <% if(edit) {%>
+                <input type = "hidden" name = id value = "<%= user.id%>">
+            <% }%>
+            <button class="btn" type="submit"><% if (edit) { %>Update User<% } else { %>Sign Up<% } %></button>
+            <a href = "/login">login</a>
+
+    </form>
+
+    <form action = "/logout" method = "POST">
+        <input type = "submit" value = "logout">
+    </form>
+        
+
+    
+</body>
+</html>
